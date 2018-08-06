@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<CsDataGenerateConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <configs>
+    <CsDataGenerateInfo>
+      <caption>默认配制</caption>
+      <folder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\scripts</folder>
+      <package_basic>com.game.data</package_basic>
+      <beanImport>
+        <string />
+      </beanImport>
+      <containerImport>
+        <string />
+      </containerImport>
+      <isSet>true</isSet>
+    </CsDataGenerateInfo>
+    <CsDataGenerateInfo>
+      <caption>hdfhsdsg</caption>
+      <folder>C:\Users\Administrator\Desktop\</folder>
+      <package_basic>dewtgwe</package_basic>
+      <beanImport>
+        <string>1234</string>
+      </beanImport>
+      <containerImport>
+        <string>ergre</string>
+      </containerImport>
+      <isSet>true</isSet>
+    </CsDataGenerateInfo>
+  </configs>
+  <lastIndex>0</lastIndex>
+</CsDataGenerateConfig>

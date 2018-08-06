@@ -1,0 +1,10 @@
+﻿#foreach($us in $usList)
+$us
+#end
+namespace ClientGame.RPC
+{
+    public class ${CServiceName}
+    {
+$FunList
+    }
+}

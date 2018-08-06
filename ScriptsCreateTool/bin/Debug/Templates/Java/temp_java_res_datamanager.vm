@@ -1,0 +1,41 @@
+﻿package ${PackageString}.manager;
+
+#foreach($container in $containerList)
+import ${PackageString}.container.${container.UpperName}Container;
+#end
+
+/** 
+ * @author XSot.ResourceTools Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * @date ${TimeNow}
+ * 
+ * DataManager Manager
+ */
+public class DataManager {
+
+    private final static Object obj = new Object();
+    private static DataManager manager;
+    // 初始化Container
+	#foreach($container in $containerList)
+	public ${container.UpperName}Container ${container.name} = new ${container.UpperName}Container();
+	#end
+
+    private DataManager() {
+		#foreach($container in $containerList)
+		${container.name}Container.load();
+		#end
+    }
+
+    public static DataManager getInstance() {
+        if(manager == null){
+            synchronized (obj) {
+                if(manager == null) {
+                    manager = new DataManager();
+                }
+            }
+        }
+        return manager;
+    }
+}

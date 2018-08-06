@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<JavaDataGenerateConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <configs>
+    <JavaDataGenerateInfo>
+      <caption>默认配制</caption>
+      <folder>E:\test\java\</folder>
+      <db_configFile>data-config.xml</db_configFile>
+      <baseDao>BaseDao</baseDao>
+      <package_basic>com.game.data</package_basic>
+      <manager>com.game.data.manager.DataManager</manager>
+      <db_config>
+        <DbType>MySql</DbType>
+        <Username>root</Username>
+        <Password>root</Password>
+        <IPAddress>192.168.0.254</IPAddress>
+        <Port>3306</Port>
+        <Database>game_data</Database>
+        <VersionInfo>
+          <TableName>q_version</TableName>
+          <TableField>q_tablename</TableField>
+          <IntValueField>q_int_value</IntValueField>
+          <DescField>q_desc</DescField>
+        </VersionInfo>
+      </db_config>
+      <overlap>true</overlap>
+    </JavaDataGenerateInfo>
+    <JavaDataGenerateInfo>
+      <caption>dfsgerhg</caption>
+      <folder>C:\Users\Administrator\Desktop</folder>
+      <db_configFile />
+      <baseDao />
+      <package_basic />
+      <manager />
+      <db_config>
+        <DbType>MySql</DbType>
+        <Username />
+        <Password />
+        <IPAddress />
+        <Port />
+        <Database />
+        <VersionInfo>
+          <TableName>q_version</TableName>
+          <TableField>q_tablename</TableField>
+          <IntValueField>q_int_value</IntValueField>
+          <DescField>q_desc</DescField>
+        </VersionInfo>
+      </db_config>
+      <overlap>true</overlap>
+    </JavaDataGenerateInfo>
+  </configs>
+  <lastIndex>0</lastIndex>
+</JavaDataGenerateConfig>

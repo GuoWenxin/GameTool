@@ -1,0 +1,106 @@
+﻿using System;
+#foreach($import in $importList)
+#if($import!="")
+${import};
+#end
+#end
+
+
+namespace ${PackageString}.bean{
+	/** 
+	 * @author XSot.ResourceTools Auto Maker
+	 * 
+	 * @version 1.0.0
+	 * 
+	 * @date $DateTime
+	 */
+	 ///<summary> 
+	 /// $BeanName Bean
+	 ///</summary>
+	 public class $BeanName : Bean<${BeanName}> {
+		
+        #foreach($field in $fieldList)
+        //$field.explain
+		#if ($field.className=="int")
+		private int _${field.name};
+		#elseif ($field.className=="smallint")
+		private int _${field.name};
+		#elseif ($field.className=="tinyint")
+		private int _${field.name};
+		#elseif ($field.className=="")
+		private int _${field.name};
+	    #elseif ($field.className=="short")
+	    private short _${field.name};
+        #elseif ($field.className=="float")
+	    private float _${field.name};
+	    #elseif ($field.className=="long")
+	    private long _${field.name};
+	    #elseif ($field.className=="byte")
+	    private byte _${field.name};
+		#else
+	    private string _${field.name};
+	    #end
+		#end
+		
+		///<summary>
+		/// 读取字节缓存
+		///</summary>
+		public override bool read(ByteArray paramByteArray) {
+			#foreach($read in $fieldList)
+            //$read.explain
+            #if ($read.className=="int")
+		    _$read.name=readInt(paramByteArray);
+			#elseif ($read.className=="smallint")
+			_$read.name=readInt(paramByteArray);
+			#elseif ($read.className=="tinyint")
+			_$read.name=readInt(paramByteArray);
+            #elseif ($read.className=="")
+	        _$read.name=readInt(paramByteArray);
+	        #elseif ($read.className=="short")
+	        _$read.name=readShort(paramByteArray);
+             #elseif ($read.className=="float")
+	        _$read.name=readFloat(paramByteArray);
+	        #elseif ($read.className=="long")
+	        _$read.name=readLong(paramByteArray);
+	        #elseif ($read.className=="byte")
+	        _$read.name=readByte(paramByteArray);
+		    #else
+	        _$read.name=readString(paramByteArray);
+	        #end
+            #nodata  
+            #end  
+            
+			return true;
+		}
+                public override bool write(ByteArray paramByteArray){
+			return true;
+		}
+
+		#foreach($field in $getFieldList)
+		 ///<summary>
+		 /// $field.explain
+		 ///</summary>
+		 #if ($field.className=="int")
+		 public int ${field.name}{
+		 #elseif ($field.className=="smallint")
+		 public int ${field.name}{
+		 #elseif ($field.className=="tinyint")
+		 public int ${field.name}{
+         #elseif ($field.className=="")
+	     public int ${field.name}{
+		 #elseif ($field.className=="short")
+	     public short ${field.name}{
+         #elseif ($field.className=="float")
+	     public float ${field.name}{
+	     #elseif ($field.className=="long")
+	     public long ${field.name}{
+	     #elseif ($field.className=="byte")
+	     public byte ${field.name}{
+		 #else
+	     public string ${field.name}{
+	     #end
+			get{return _${field.name};}
+		 }
+		 #end
+	}
+}

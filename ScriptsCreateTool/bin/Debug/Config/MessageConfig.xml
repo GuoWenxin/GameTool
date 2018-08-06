@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<MessageConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CS>
+    <messageFolder>E:\yxh_engine\ref\message_xml</messageFolder>
+    <OutPath>E:\yxh_engine\trunk\u3d_client\Assets\Scripts\Game</OutPath>
+    <CsMessageFile>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\messageXml\login_message.xml</CsMessageFile>
+    <CsBeanTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\CS\temp_cs_bean.vm</CsBeanTemplate>
+    <CsMessageTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\CS\temp_cs_message.vm</CsMessageTemplate>
+    <CsMessageTypeTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\CS\temp_cs_messageType.vm</CsMessageTypeTemplate>
+    <CsFunMap>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\CS\C#MessageFunMap.xlsx</CsFunMap>
+  </CS>
+  <AS>
+    <AsMessageFile>
+    </AsMessageFile>
+    <AsBeanTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\AS\temp_as_bean.vm</AsBeanTemplate>
+    <AsMessageTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\AS\temp_as_message.vm</AsMessageTemplate>
+    <AsHandleTemplate>E:\Tools\srcgen\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\Templates\AS\temp_as_handler.vm</AsHandleTemplate>
+    <AsFunMap>
+    </AsFunMap>
+  </AS>
+</MessageConfig>

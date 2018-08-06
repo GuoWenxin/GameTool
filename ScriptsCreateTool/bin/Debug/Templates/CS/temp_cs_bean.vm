@@ -1,0 +1,183 @@
+﻿#foreach($us in $usList)
+$us
+#end
+/* 
+ * @author Commuication Auto Maker
+ * 
+ * @version 1.0.0
+ */
+namespace ${ImportString}.bean
+{
+	///<summary>
+	/// $BeanExplain
+	///</summary>
+	public class $BeanName: Bean<$BeanName> {
+		#foreach($fl in $flList)
+		//$fl.explain
+		#if (${fl.isList}=="0")
+		#if($fl.className=="String")
+		private string _$fl.name;
+		#else
+		private $fl.className _$fl.name;
+		#end
+		#elseif (${fl.isList}=="1")
+		#if($fl.className=="String")
+		private List<string> _$fl.name;
+		#else
+		private List<${fl.className}> _$fl.name;
+		#end
+		#end
+		#nodata
+		#end
+		///<summary>
+		/// $BeanExplain
+		///</summary>
+		public $BeanName(){
+		 
+		}
+		
+		///<summary>
+		/// 写入字节缓存
+		///</summary>
+		public override bool write(ByteArray paramByteArray){
+			#foreach($fl in $flList)  
+			##each  
+			///<summary>
+			///$fl.explain
+			///</summary>
+			#if($fl.isList=="0")
+			#if ($fl.className=="int")
+			writeInt(paramByteArray,_${fl.name});
+			#elseif ($fl.className=="short")
+			writeShort(paramByteArray,_${fl.name});
+			#elseif ($fl.className=="float")
+			writeFloat(paramByteArray,_${fl.name});
+			#elseif ($fl.className=="long")
+			writeLong(paramByteArray,_${fl.name});
+			#elseif ($fl.className=="byte")
+			writeByte(paramByteArray,_${fl.name});
+			#elseif ($fl.className=="String")
+			writeString(paramByteArray,_${fl.name});
+			#else
+			_${fl.name}.write(paramByteArray);
+			#end
+			#elseif($fl.isList=="1")
+			writeShort(paramByteArray,_${fl.name}.Count);
+			for (int i = 0; i < _${fl.name}.Count; i++) {
+			#if ($fl.className=="int")
+			writeInt(paramByteArray,_${fl.name}[i]);
+			#elseif ($fl.className=="short")
+			writeShort(paramByteArray,_${fl.name}[i]);
+			#elseif ($fl.className=="float")
+			writeFloat(paramByteArray,_${fl.name}[i]);
+			#elseif ($fl.className=="long")
+			writeLong(paramByteArray,_${fl.name}[i]);
+			#elseif ($fl.className=="byte")
+			writeByte(paramByteArray,_${fl.name}[i]);
+			#elseif ($fl.className=="String")
+			writeString(paramByteArray,_${fl.name}[i]);
+			#else
+			_${fl.name}[i].write(paramByteArray);
+			#end
+			}
+			#end  
+			#nodata
+			#end 
+			
+			return true;
+		}
+		
+		///<summary>
+		/// 读取字节缓存
+		///</summary>
+		public override bool read(ByteArray paramByteArray){
+			int length=0;
+			#foreach($fl in $flList)  
+			##each  
+			///<summary>
+			///$fl.explain
+			///</summary>
+			#if($fl.isList=="0")
+			#if ($fl.className=="int")
+			_$fl.name=readInt(paramByteArray);
+			#elseif ($fl.className=="short")
+			_$fl.name=readShort(paramByteArray);
+			#elseif ($fl.className=="float")
+			_$fl.name=readFloat(paramByteArray);
+			#elseif ($fl.className=="long")
+			_$fl.name=readLong(paramByteArray);
+			#elseif ($fl.className=="byte")
+			_$fl.name=readByte(paramByteArray);
+			#elseif ($fl.className=="String")
+			_$fl.name=readString(paramByteArray);
+			#else
+			_$fl.name=new ${fl.className}();
+			_${fl.name}.readBean(paramByteArray,_${fl.name});
+			#end
+			#elseif($fl.isList=="1")
+			#if(${fl.className}=="String")
+			_${fl.name} = new List<string>();
+			#else
+			_${fl.name} = new List<${fl.className}>();
+			#end
+			length=readShort(paramByteArray);
+			for (int i = 0; i < length; i++) {
+			#if ($fl.className=="int")
+			int _vint = readInt(paramByteArray);
+			_${fl.name}.Add(_vint);
+			#elseif ($fl.className=="short")
+			short _vshort = readShort(paramByteArray);
+			_${fl.name}.Add(_vshort);
+			#elseif ($fl.className=="float")
+			float _vfloat = readFloat(paramByteArray);
+			_${fl.name}.Add(_vfloat);
+			#elseif ($fl.className=="long")
+			long _vlong = readLong(paramByteArray);
+			_${fl.name}.Add(_vlong);
+			#elseif ($fl.className=="byte")
+			byte _vbyte = readByte(paramByteArray);
+			_${fl.name}.Add(_vbyte);
+			#elseif ($fl.className=="String")
+			string _vstring = readString(paramByteArray);
+			_${fl.name}.Add(_vstring);
+			#else
+			${fl.className} _${fl.classNameReal}=new ${fl.className}();
+			_${fl.classNameReal}.readBean(paramByteArray,_${fl.classNameReal});
+			_${fl.name}.Add(_${fl.classNameReal});
+			#end
+			}
+			#end
+			#nodata  
+			#end  
+			return true;
+		}
+		#foreach($fl in $flList)  
+		##each  
+		///<summary>
+		///$fl.explain
+		///</summary>
+		#if($fl.isList=="0")
+		#if($fl.className=="String")
+		public string $fl.name()
+		#else
+		public $fl.className $fl.name()
+		#end 
+		{
+		    get{return _$fl.name;}
+			set{_$fl.name=value;}
+		}
+		#elseif($fl.isList=="1")
+		#if($fl.className=="String")
+		public List<string>  $fl.name()
+		#else
+		public List<$fl.className>  $fl.name()
+		#end
+		{
+		    get{return _$fl.name;}
+			set{_$fl.name=value;}
+		}
+		#end
+		#nodata  
+		#end		
+	}
+}

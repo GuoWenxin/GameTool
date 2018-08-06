@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+#foreach($import in $importList)
+#if($import!="")
+${import};
+#end
+#end
+#if(${BeanPackage}!="")
+using ${BeanPackage}.bean;
+#end
+/** 
+ * @author XSot.ResourceTools Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * @date $DateTime
+ */
+ ///<summary> 
+ /// $ContainerName Container
+ ///</summary>
+ public class $ContainerName{
+
+	private List<${Name}> _list = new List<${Name}>();
+	#if(${ID}!="IAMNULL")
+	private Dictionary<string,${Name}> _dict= new Dictionary<string,${Name}>();
+	#end
+	private int _version;
+
+	public $ContainerName (ByteArray bytes) {
+		_version = bytes.ReadInt();
+		int num= bytes.ReadInt();
+		for (int i= 0; i < num; i++) {
+			${Name} bean = new ${Name}();
+			bean.read(bytes);
+			_list.Add(bean);
+			#if(${ID}!="IAMNULL")
+			_dict[${ID}] = bean;
+			#end
+		}
+	}
+
+	public List<${Name}>  list{
+		get{return _list;}
+	}
+	#if(${ID}!="IAMNULL")
+	public Dictionary<string,${Name}>  dict{
+		get{return _dict;}
+	}
+	#end
+	public int  version {
+		get{return _version;}
+	}
+}

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="${Name}">
+  <!--Auto marker 2016-06-15 09:50:25-->
+  <resultMap id="bean" type="com.game.data.bean.${Name}Bean">
+	#foreach($field in $fieldList)
+	#if ($field.className=="int")
+	<result column="$field.name" property="$field.name" jdbcType="INTEGER" />
+	#elseif ($field.className=="short")
+	<result column="$field.name" property="$field.name" jdbcType="SHORT" />
+	#elseif ($field.className=="float")
+	<result column="$field.name" property="$field.name" jdbcType="FLOAT" />
+	#elseif ($field.className=="long")
+	<result column="$field.name" property="$field.name" jdbcType="LONG" />
+	#elseif ($field.className=="byte")
+	<result column="$field.name" property="$field.name" jdbcType="BYTE" />
+	#elseif ($field.className=="text")
+	<result column="$field.name" property="$field.name" jdbcType="LONGVARCHAR" />
+	#else
+	<result column="$field.name" property="$field.name" jdbcType="VARCHAR" />
+	#end
+	#end
+  </resultMap>
+  <select id="select" resultMap="bean">select * from `${Name}`</select>
+</mapper>

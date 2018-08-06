@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages package="com.game.player" id="103">
+	<bean name="PlayerInfo" explain="角色信息">
+		<field class="long" name="personId" explain="角色Id"></field>
+		<field class="String" name="name" explain="角色名字"></field>
+		<field class="int" name="headIconId" explain="头象ID"></field>
+		<field class="byte" name="job" explain="角色职业 0没有职业 1战士 2法师 3"></field>
+		<field class="byte" name="transferJob" explain="转职后职业编号"></field>
+		<field class="int" name="level" explain="角色等级"></field>
+		<field class="int" name="hp" explain="当前HP"></field>
+		<field class="int" name="mp" explain="当前MP"></field>
+		<field class="long" name="mapId" explain="角色所在地图"></field>
+		<field class="init" name="line" explain="当前所在线"></field>
+		<field class="short" name="x" explain="角色所在X"></field>
+		<field class="short" name="y" explain="角色所在Y"></field>
+		<field class="int" name="state" explain="角色状态"></field>
+		<field class="int" name="money" explain="金币"></field>
+		<field class="int" name="boundMoney" explain="绑金"></field>
+		<field class="int" name="gold" explain="元宝"></field>
+		<field class="int" name="bindgold" explain="绑定元宝"></field>
+		<field class="int" name="pkState" explain="角色PK状态"></field>
+		<field class="int" name="luckyValue" explain="幸运值"></field>
+		<field class="int" name="charmValue" explain="魅力值"></field>
+		<field class="int" name="spiritLevel" explain="精神等级"></field>
+		<field class="int" name="spiritValue" explain="精神值"></field>
+		<field class="int" name="pksword" explain="PK值"></field>
+		<field class="long" name="exp" explain="角色当前经验"></field>
+		<field class="long" name="expMax" explain="升级所需经验"></field>
+		<field class="byte" name="dir" explain="人物面对方向"></field>
+		<field class="PlayerAbilityInfo" name="abilityinfo" explain="玩家属性"></field>
+	</bean>
+	<bean name="PlayerAbilityInfo" explain="玩家属性信息">
+		<field class="int" name="acmin" explain="物理攻击下限"></field>
+		<field class="int" name="acmax" explain="物理攻击上限"></field>
+		<field class="int" name="ac_pct" explain="物理攻击增加百分比"></field>
+		<field class="int" name="defence" explain="物理防御"></field>
+		<field class="int" name="defense_pct" explain="物理防御增加百分比"></field>
+		<field class="int" name="mcmin" explain="魔法攻击下限"></field>
+		<field class="int" name="mcmax" explain="魔法攻击上限限"></field>
+		<field class="int" name="mc_pct" explain="魔法攻击增加百分比"></field>
+		<field class="int" name="magic_add" explain="魔防增加百分比"></field>
+		<field class="int" name="mcDefence" explain=" 魔防"></field>
+		<field class="int" name="maxHp" explain="最大血量"></field>
+		<field class="int" name="maxHp_pct" explain="生命上限增加百分比"></field>
+		<field class="int" name="maxMp" explain="最大魔法"></field>
+		<field class="int" name="critical" explain="暴击"></field>
+		<field class="int" name="hurt_add" explain="伤害加成百分比"></field>
+	</bean>
+	<message id="100" type="SC" explain="玩家属性">
+		<field class="PlayerInfo" name="playerInfo" explain="玩家详细信息"></field>
+	</message>
+</messages>

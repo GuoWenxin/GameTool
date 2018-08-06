@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <datas>
+    <data name="VersionFolder_Input">E:\sanGuoMobileGame\client\trunk\SanGuo_FuChouDaLianMeng_Android\MY_TargetDirectory\v1.0.1.6</data>
+    <data name="VersionFolder_Output">c:</data>
+    <data name="VersionBigVersionNum">1.0.1.6</data>
+    <data name="VersionType">MD5</data>
+    <data name="VersionSingle_Input">E:\nginx\web\yulong\jianti\IOS\v1.9998.1.1.7\DataBase\SystemIntroduce.txt</data>
+    <data name="VersionSingle_Output">C:\</data>
+    <data name="Md5VersionSingle_Input" />
+    <data name="Md5VersionSingle_Output" />
+    <data name="LanageTransferSimpleToTWSimple">E:\test\input</data>
+    <data name="LanageTransferSimpleToTWTW">E:\test\output</data>
+    <data name="LanageTransferTWToSimpleTW">E:\test\output</data>
+    <data name="LanageTransferTWToSimpleSimple">E:\test\Tw</data>
+    <data name="ExportExcelPath">C:\Users\Administrator\Desktop\szly证书</data>
+    <data name="VersionFileSizeUnit">KB</data>
+    <data name="VersionIgnorePostFix">meta;manifest</data>
+    <data name="JsonDecodePath">E:\longYuJieMobileGame\client\繁体资料\assetbundles_android\Assets\v1.0.0.21\andriodSourceTitleList.txt</data>
+    <data name="RES_DECODE_RES_FOLDER_ADDR">C:\Users\Administrator\Desktop\Desktop\res</data>
+    <data name="RES_DECODE_DELL_ADDR">C:\Users\Administrator\Desktop\Desktop\test\ClassLibrary1.dll</data>
+    <data name="RES_DECODE_EXCEL_ADDR">C:\Users\Administrator\Desktop\Desktop\test</data>
+    <data name="RES_DECODE_RES_SINGLE_ADDR">E:\nanjing\ScriptsCreateTool\ScriptsCreateTool\bin\Debug\ResData\t_base_active.res</data>
+    <data name="DataBaseSelectIndex">4</data>
+  </datas>
+</Root>

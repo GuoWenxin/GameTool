@@ -1,0 +1,54 @@
+﻿using UnityEngine;
+using System.Collections;
+using GameCore;
+
+namespace ClientGame
+{
+	public class $ClassName: CReferenceManager<$ClassName>
+	{
+		public readonly static string FileName = @"reference/${Path}.txt";
+
+		#foreach($field in $fieldList)
+		//$field.explain
+		#if ($field.className=="int")
+		public int $field.name;
+		#elseif ($field.className=="short")
+		public short $field.name;
+		#elseif ($field.className=="float")
+		public float $field.name;
+		#elseif ($field.className=="long")
+		public long $field.name;
+		#elseif ($field.className=="byte")
+		public byte $field.name;
+		#else
+		public string $field.name;
+		#end
+		#nodata
+		#end
+		
+		public override void ReadTxt(CArchiveRecord ar)
+		{
+			//base.ReadTxt(ar);
+			#foreach($field in $fieldList)  
+			##each  
+			///<summary>
+			/// $field.explain
+			///</summary>
+			#if ($field.className=="int")
+			$field.name=ar.ReadInt();
+			#elseif ($field.className=="short")
+			$field.name=ar.ReadShort();
+			#elseif ($field.className=="float")
+			$field.name=ar.ReadFloat();
+			#elseif ($field.className=="long")
+			$field.name=ar.ReadLong();
+			#elseif ($field.className=="byte")
+			$field.name=ar.ReadByte();
+			#else
+			$field.name=ar.ReadString();
+			#end
+			#nodata  
+			#end  
+		}
+	}
+}

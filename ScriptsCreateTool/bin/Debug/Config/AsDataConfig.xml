@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<AsDataGenerateConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <configs>
+    <AsDataGenerateInfo>
+      <caption>默认配制</caption>
+      <folder>E:\test\as\</folder>
+      <package_basic>com.game.data</package_basic>
+      <beanImport>
+        <string>import com.game.message.Bean</string>
+      </beanImport>
+      <containerImport>
+        <string>import flash.utils.Dictionary</string>
+        <string>import flash.utils.ByteArray</string>
+      </containerImport>
+      <isSet>true</isSet>
+    </AsDataGenerateInfo>
+    <AsDataGenerateInfo>
+      <caption>hdfhsdsg</caption>
+      <folder>C:\Users\Administrator\Desktop\</folder>
+      <package_basic>dewtgwe</package_basic>
+      <beanImport>
+        <string>1234</string>
+      </beanImport>
+      <containerImport>
+        <string>ergre</string>
+      </containerImport>
+      <isSet>true</isSet>
+    </AsDataGenerateInfo>
+  </configs>
+  <lastIndex>0</lastIndex>
+</AsDataGenerateConfig>

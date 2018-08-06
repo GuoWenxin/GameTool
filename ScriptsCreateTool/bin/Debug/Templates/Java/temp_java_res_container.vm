@@ -1,0 +1,42 @@
+﻿package ${PackageString}.container;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import com.game.data.bean.${Name}Bean;
+import com.game.data.dao.${Name}Dao;
+/** 
+ * @author XSot.ResourceTools Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * @date ${TimeNow}
+ * 
+ * Test Container
+ */
+public class ${Name}Container {
+
+    private List<${Name}Bean> list;
+
+    private HashMap<Integer, ${Name}Bean> map = new HashMap<Integer, ${Name}Bean>();
+
+    private ${Name}Dao dao = new ${Name}Dao();
+
+    public void load(){
+        list = dao.select();
+        Iterator<${Name}Bean> iter = list.iterator();
+        while (iter.hasNext()) {
+            ${Name}Bean bean = (${Name}Bean) iter.next();
+            map.put(bean.get${ID}(), bean);
+        }
+    }
+
+    public List<${Name}Bean> getList(){
+        return list;
+    }
+
+    public HashMap<Integer, ${Name}Bean> getMap(){
+        return map;
+    }
+}

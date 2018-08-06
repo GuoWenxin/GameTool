@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<BasicConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <folder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\excel</folder>
+  <filterSheets>
+    <string>changelog</string>
+    <string>说明</string>
+    <string>sheet</string>
+    <string>备份</string>
+    <string>FilterDatabase</string>
+  </filterSheets>
+  <startLoadFolder>false</startLoadFolder>
+  <loadData>true</loadData>
+  <resUnderline />
+  <resFolder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\res</resFolder>
+  <isDisorder>false</isDisorder>
+  <isDatabase>false</isDatabase>
+  <disSeed />
+  <isResEnc>false</isResEnc>
+  <disEncType>MD5</disEncType>
+  <csTemplate>
+  </csTemplate>
+  <typeBankFile>
+  </typeBankFile>
+</BasicConfig>

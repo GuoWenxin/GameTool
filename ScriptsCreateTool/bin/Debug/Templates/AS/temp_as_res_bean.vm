@@ -1,0 +1,108 @@
+﻿package ${PackageString}.bean{
+	#foreach($import in $importList)
+        $import
+        #end
+	
+	/** 
+	 * @author XSot.ResourceTools Auto Maker
+	 * 
+	 * @version 1.0.0
+	 * 
+	 * @date 2016-06-15 14:44:00
+	 * 
+	 * $BeanName Bean
+	 */
+	 public class $BeanName extends Bean {
+		
+        #foreach($field in $fieldList)
+        //$field.explain
+		#if ($field.className=="int")
+		private var _${field.name}:int;
+	    #elseif ($field.className=="short")
+	    private var _${field.name}:short;
+        #elseif ($field.className=="float")
+	    private var _${field.name}:float;
+	    #elseif ($field.className=="long")
+	    private var _${field.name}:long;
+	    #elseif ($field.className=="byte")
+	    private var _${field.name}:byte;
+		#else
+	    private var _${field.name}:String;
+	    #end
+		#end
+		
+		/**
+		 * 读取字节缓存
+		 *
+		 */
+		override protected function reading(): Boolean {
+			#foreach($read in $fieldList)
+            //$read.explain
+            #if ($read.className=="int")
+		    _$read.name=readInt();
+			#elseif ($read.className=="")
+		    _$read.name=readInt();
+	        #elseif ($read.className=="short")
+	        _$read.name=readShort();
+             #elseif ($read.className=="float")
+	        _$read.name=readFloat();
+	        #elseif ($read.className=="long")
+	        _$read.name=readLong();
+	        #elseif ($read.className=="byte")
+	        _$read.name=readByte();
+		    #else
+	        _$read.name=readString();
+	        #end
+            #nodata  
+            #end  
+            
+			return true;
+		}
+
+		#foreach($getfield in $getFieldList)
+		/**
+		 * get $getfield.explain
+		 * @return
+		 */
+		 #if ($getfield.className=="int")
+		 public function get ${getfield.name}: int{
+	     #elseif ($getfield.className=="short")
+	     public function get ${getfield.name}: short{
+         #elseif ($getfield.className=="float")
+	     public function get ${getfield.name}: float{
+	     #elseif ($getfield.className=="long")
+	     public function get ${getfield.name}: long{
+	     #elseif ($getfield.className=="byte")
+	     public function get ${getfield.name}: byte{
+		  #else
+	     public function get ${getfield.name}: String{
+	     #end
+		 
+			 return _${getfield.name};
+		 }
+		 #nodata  
+         #end
+		
+		#foreach($setfield in $fieldList)
+		/**
+		 * set $setfield.explain
+		 */
+		 #if ($setfield.className=="int")
+		 public function set tipsID(value: int): void {
+	     #elseif ($setfield.className=="short")
+	     public function set tipsID(value: short): void {
+         #elseif ($setfield.className=="float")
+	     public function set tipsID(value: float): void {
+	     #elseif ($setfield.className=="long")
+	     public function set tipsID(value: long): void {
+	     #elseif ($setfield.className=="byte")
+	     public function set tipsID(value: byte): void {
+		 #else
+	     public function set tipsID(value: String): void {
+	     #end
+			 this._$setfield.name = value;
+		 }
+		 #nodata  
+         #end
+	}
+}

@@ -1,0 +1,166 @@
+﻿package ${PackageString}.bean{
+	import net.Bean;
+	
+	/** 
+	 * @author Commuication Auto Maker
+	 * 
+	 * @version 1.0.0
+	 * 
+	 * @since 2011-5-8
+	 * 
+	 * $Explain
+	 */
+	public class $BeanName extends Bean {
+	
+            #foreach($field in $fildList)  
+            ##each  
+            /**
+            * $field.explain
+            */  
+            private var _$field.name: $field.className ;
+            #nodata  
+            #end
+            #foreach($list in $vectorList)  
+            ##each  
+            /**
+            * $list.explain
+            */  
+            private var _$list.name: Vector.<$list.className>=new Vector.<$list.className> ();
+            #nodata  
+            #end    
+            /**
+	    * 写入字节缓存
+	    */
+	     override protected function writing(): Boolean{
+		  #foreach($write in $fildList)  
+                  ##each  
+                  /**
+		  * $write.explain
+		  */
+                  #if ($write.className=="int")
+		  writeInt(_$write.name);
+                  #elseif ($write.className=="short")
+                  writeShort(_$write.name);
+                  #elseif ($write.className=="float")
+                  writeFloat(_$write.name);
+                  #elseif ($write.className=="long")
+                  writeLong(_$write.name);
+                  #elseif ($write.className=="byte")
+                  writeByte(_$write.name);
+                  #elseif ($write.className=="String")
+                  writeString(_$write.name);
+                  #else
+                  #end
+                  #nodata
+                  #end 
+	          #foreach($write in $vectorList)  
+                  ##each  
+                  /**
+		  * $write.explain
+		  */
+	          writeShort(_infoExpandList.length);
+                  for (var i: int = 0; i < _infoExpandList.length; i++) {
+                      #if ($write.className=="int")
+                      writeInt(_$write.name[i]);
+                      #elseif ($write.className=="short")
+                      writeShort(_$write.name[i]);
+                      #elseif ($write.className=="float")
+                      writeFloat(_$write.name[i]);
+                      #elseif ($write.className=="long")
+                      writeLong(_$write.name[i]);
+                      #elseif ($write.className=="byte")
+                      writeByte(_$write.name[i]);
+                      #elseif ($write.className=="String")
+                      writeString(_$write.name[i]);
+	          }
+                  #end
+                  #nodata
+                  #end  
+	          return true;
+           }
+		
+           /**
+           * 读取字节缓存
+	   */
+	   override protected function reading(): Boolean{
+		  #foreach($read in $fildList)  
+                  ##each  
+                  /**
+		  * $read.explain
+		  */  
+                  #if ($read.className=="int")
+		  _$read.name=readInt();
+	          #elseif ($read.className=="short")
+	          _$read.name=readShort();
+                  #elseif ($read.className=="float")
+	          _$read.name=readFloat();
+	          #elseif ($read.className=="long")
+	          _$read.name=readLong();
+	          #elseif ($read.className=="byte")
+	          _$read.name=readByte();
+		  #elseif ($read.className=="String")
+	          _$read.name=readString();
+	          #else
+	          #end
+                  #nodata  
+                  #end  
+	          #foreach($read in $vectorList)  
+                  ##each  
+                  /**
+		  * $read.explain
+		  */  
+	          var infoExpandList_length : int = readShort();
+	          for (var i: int = 0; i < infoExpandList_length; i++) {
+	          #if ($read.className=="int")
+                  _$read.name[i]=readInt();
+	          #elseif ($read.className=="short")
+                  _$read.name[i]=readShort();
+	          #elseif ($read.className=="float")
+		  _$read.name[i]=readFloat();
+		  #elseif ($read.className=="long")
+		  _$read.name[i]=readLong();
+		  #elseif ($read.className=="byte")
+		  _$read.name[i]=readByte();
+		  #elseif ($read.className=="String")
+		  _$read.name[i]=readString();
+		  #else
+	          }
+		 #end
+                 #nodata  
+                 #end  
+		 return true;
+        }
+        #foreach($getfield in $fildList)  
+        ##each  
+        /**
+        *get $getfield.explain
+        */  
+        public function get $getfield.name(): $getfield.className{
+            return _$getfield.name;
+        }
+        /**
+        *set $getfield.explain
+        */  
+        public function set ${getfield.name}(value: $getfield.className): void{
+            this._$getfield.name=$getfield.name;
+        }
+        #nodata  
+        #end 
+	#foreach($getfield in $vectorList)  
+        ##each  
+        /**
+        *get $getfield.explain
+        */  
+        public function get $getfield.name():Vector.< $getfield.className>{
+            return _$getfield.name;
+        }
+        /**
+        *set $getfield.explain
+        */  
+        public function set ${getfield.name}(value: Vector.<$getfield.className>): void{
+            this._$getfield.name=$getfield.name;
+        }
+        #nodata  
+        #end 
+	}
+}

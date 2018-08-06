@@ -1,0 +1,108 @@
+﻿package ${PackageString}.bean;
+
+
+import ${BeanSuper};
+
+import org.apache.mina.core.buffer.IoBuffer;
+
+/** 
+ * @author Commuication Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * $Explain
+ */
+public class ${BeanName} extends Bean {
+
+	#foreach($field in $fieldList)
+	//$field.explain
+	private $field.className $field.name;
+	#end
+	#foreach($bean in $beanList)
+	#end
+	/**
+	 * 写入字节缓存
+	 */
+	public boolean write(IoBuffer buf){
+		#foreach($field in $fieldList)
+		//$field.explain
+		#if ($field.className=="int")
+		writeInt(buf,this.${field.name});
+		#elseif ($field.className=="short")
+		writeShort(buf,this.${field.name});
+		#elseif ($field.className=="float")
+		writeFloat(buf,this.${field.name});
+		#elseif ($field.className=="long")
+		writeLong(buf,this.${field.name});
+		#elseif ($field.className=="byte")
+		writeByte(buf,this.${field.name});
+		#elseif ($field.className=="String")
+		writeString(buf,this.${field.name});
+		#end
+		#end
+		#foreach($bean in $beanList)
+		#end
+		return true;
+	}
+	
+	/**
+	 * 读取字节缓存
+	 */
+	public boolean read(IoBuffer buf){
+		#foreach($field in $fieldList)
+		//$field.explain
+		#if ($field.className=="int")
+		this.${field.name}=readInt(buf);
+		#elseif ($field.className=="short")
+		this.${field.name}=readShort(buf);
+		#elseif ($field.className=="float")
+		this.${field.name}=readFloat(buf);
+		#elseif ($field.className=="long")
+		this.${field.name}=readLong(buf);
+		#elseif ($field.className=="byte")
+		this.${field.name}=readByte(buf);
+		#elseif ($field.className=="String")
+		this.${field.name}=readString(buf);
+		#end
+		#end
+		#foreach($bean in $beanList)
+		#end
+		return true;
+	}
+	
+	#foreach($field in $fieldList)
+	/**
+	 * get $field.explain
+	 * @return 
+	 */
+	public $field.className get${field.Uppername}(){
+		return $field.name;
+	}
+	
+	/**
+	 * set $field.explain
+	 */
+	public void set${field.Uppername}($field.className $field.name){
+		this.${field.name} = $field.name;
+	}
+	#end
+	#foreach($bean in $beanList)
+	#end
+	return true;
+
+	@Override
+	public String toString(){
+		StringBuffer buf = new StringBuffer("[");
+		#foreach($field in $fieldList)
+		//$field.explain
+		#if($field.className=="String")
+		if(this.${field.name}!=null) buf.append("${field.name}:" + ${field.name}.toString() +",");
+		#else
+		buf.append("${field.name}:" + ${field.name} +",");
+		#end
+		#end
+		if(buf.charAt(buf.length()-1)==',') buf.deleteCharAt(buf.length()-1);
+		buf.append("]");
+		return buf.toString();
+	}
+}

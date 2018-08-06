@@ -1,0 +1,32 @@
+﻿package ${PackageString}.dao;
+
+import java.util.List;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.game.data.${BaseDao};
+import com.game.data.bean.${Name}Bean;
+
+/** 
+ * @author XSot.ResourceTools Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * @date ${TimeNow}
+ * 
+ * ${Name} Container
+ */
+public class ${Name}Dao extends BaseDao {
+
+    private SqlSessionFactory sqlMapper = getSqlMapper();
+
+    public List<${Name}Bean> select() {
+        SqlSession session = sqlMapper.openSession();
+        try {
+            List<${Name}Bean> list = (List<${Name}Bean>) session.selectList("${Name}.select");
+            return list;
+        } finally {
+            session.close();
+        }
+    }
+}

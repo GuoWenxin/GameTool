@@ -1,0 +1,16 @@
+﻿namespace ClientGame.RPC
+{
+    public class ${HandlerName} : MessageHandler
+    {
+        //消息处理函数
+        public override void action(ByteArray array)
+        {
+            ${ResMessageName} msg = new ${ResMessageName}();
+            msg.read(array);
+            this.message = msg;
+            //TODO 
+        }
+
+    }
+}
+

@@ -1,0 +1,25 @@
+﻿package ${Handler};
+
+
+import com.game.command.Handler;
+import ${PackageString}.message.${MessageName}Message;
+import com.game.manager.ManagerPool;
+import com.game.player.structs.Player;
+import com.game.utils.JsonUtil;
+import com.log.BaseLogger;
+
+public class ${MessageName}Handler extends Handler{
+
+	BaseLogger log = BaseLogger.getMe();
+
+	public void action(){
+		try{
+			${MessageName}Message msg = (${MessageName}Message)this.getMessage();
+			//TODO 添加消息处理
+			
+		}
+		catch(ClassCastException e){
+			log.error(e, e);
+		}
+	}
+}

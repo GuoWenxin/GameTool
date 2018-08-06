@@ -1,0 +1,124 @@
+﻿package ${PackageString}.bean;
+
+/** 
+ * @author XSot.ResourceTools Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * @date 2016-06-16 11:54:20
+ * 
+ * ${BeanName} Bean
+ */
+public class ${BeanName}Bean {
+	#foreach($field in $fieldList)
+	//$field.explain
+	#if ($field.className=="int")
+	private int _$field.name;
+	#elseif ($field.className=="short")
+	private short _$field.name;
+	#elseif ($field.className=="float")
+	private float _$field.name;
+	#elseif ($field.className=="long")
+	private long _$field.name;
+	#elseif ($field.className=="byte")
+	private byte _$field.name;
+	#else
+	private String _$field.name;
+	#end
+	#end
+    
+	#foreach($field in $fieldList)
+	#if ($field.className=="int")
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public int get $field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(int value){
+        this._${field.name} = value;
+    }
+	#elseif ($field.className=="short")
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public short get$field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(short value){
+        this._${field.name} = value;
+    }
+	#elseif ($field.className=="float")
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public float get$field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(float value){
+        this._${field.name} = value;
+    }
+	#elseif ($field.className=="long")
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public long get$field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(long value){
+        this._${field.name} = value;
+    }
+	#elseif ($field.className=="byte")
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public byte get$field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(byte value){
+        this._${field.name} = value;
+    }
+	#else
+	/**
+     * get $field.explain
+     * @return 
+     */
+    public String get$field.UpperName(){
+        return _$field.name;
+    }
+
+    /**
+     * set $field.explain
+     */
+    public void set${field.UpperName}(String value){
+        this._${field.name} = value;
+    }
+	#end
+	#end
+    
+}

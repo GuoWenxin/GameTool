@@ -1,0 +1,39 @@
+﻿/** 
+ * @author Commuication Auto Maker
+ * 
+ * @version 1.0.0
+ * 
+ * 消息
+ */
+namespace ClientGame.RPC
+{
+
+    public enum GameMessageType{
+#foreach($messType in $MessageType)
+$messType
+#end
+    
+}
+
+    public class MessagePool
+    {
+        public static void addListeners()
+        {
+#foreach($listen in $Listeners)
+$listen
+#end
+        }
+        public static MessageHandler getHandlerByName(string handlerName)
+        {
+            switch (handlerName)
+            {
+#foreach($caseHand in $CaseHanders)
+$caseHand
+#end
+                default:
+                    return null;
+            }
+        }
+     }
+
+}
