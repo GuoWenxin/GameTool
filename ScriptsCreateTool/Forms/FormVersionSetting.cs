@@ -23,10 +23,12 @@ namespace GameTools.Forms
         private string VersionType = "VersionType";
         private string VersionFileSizeUnit = "VersionFileSizeUnit";
         private string VersionIgnorePostFix = "VersionIgnorePostFix";
+        private string TargetType = "TargetType";
         private string InputPath;
         private string OutPutPath;
         private string BigVersionNum;
         private string VerType;
+        private string TarType;
         private string SizeUnit;
         private string IgnoorePostFix;
         public FormVersionSetting(bool isfolder)
@@ -52,6 +54,7 @@ namespace GameTools.Forms
             }
             BigVersionNum= PlayerPref.GetData(VersionBigVersionNum);
             VerType= PlayerPref.GetData(VersionType);
+            TarType = PlayerPref.GetData(TargetType);
             IgnoorePostFix = PlayerPref.GetData(VersionIgnorePostFix);
             textBoxInput.Text = InputPath;
             textBoxOutPut.Text = OutPutPath;
@@ -66,7 +69,16 @@ namespace GameTools.Forms
                     radioButtonMd5.Checked = true;
                     break;
             }
-            SizeUnit= PlayerPref.GetData(VersionFileSizeUnit,"B");
+            switch (TarType)
+            {
+                case "Upper":
+                    radioButtonUpper.Checked = true;
+                    break;
+                default:
+                    radioButtonLower.Checked = true;
+                    break;
+            }
+            SizeUnit = PlayerPref.GetData(VersionFileSizeUnit,"B");
             for(int i=0;i<cbUnit.Items.Count;i++)
             {
                 if (cbUnit.Items[i].ToString()== SizeUnit)
@@ -101,7 +113,7 @@ namespace GameTools.Forms
             buttonSave.Enabled = true;
             IgnoorePostFix =textBoxIgnoreFileName.Text;
         }
-        private void radioButtonNum_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             buttonSave.Enabled = true;
             RadioButton rb = (RadioButton) sender;
@@ -109,9 +121,21 @@ namespace GameTools.Forms
             {
                 VerType = "Num";
             }
+            else if (rb == radioButtonMd5)
+            {
+                VerType = "MD5";
+            }
+            else if (rb == radioButtonUpper)
+            {
+                VerType = "Upper";
+            }
+            else if (rb == radioButtonMd5)
+            {
+                VerType = "Lower";
+            }
         }
 
-        private void radioButtonMd5_CheckedChanged(object sender, EventArgs e)
+        /*private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             buttonSave.Enabled = true;
             buttonSave.Enabled = true;
@@ -120,7 +144,7 @@ namespace GameTools.Forms
             {
                 VerType = "MD5";
             }
-        }
+        }*/
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -144,6 +168,7 @@ namespace GameTools.Forms
                 PlayerPref.SetData(VersionBigVersionNum,BigVersionNum);
                 PlayerPref.SetData(VersionIgnorePostFix,IgnoorePostFix);
                 PlayerPref.SetData(VersionType,VerType);
+                PlayerPref.SetData(TargetType, TarType);
                 PlayerPref.SetData(VersionFileSizeUnit, SizeUnit);
                 buttonSave.Enabled = false;
             }
@@ -215,7 +240,7 @@ namespace GameTools.Forms
 
         private void CreateFile()
         {
-            CVersionMd5.Instance.CreateVersionByMd5(InputPath, OutPutPath, BigVersionNum,IgnoorePostFix,SizeUnit, !IsFolder);
+            CVersionMd5.Instance.CreateVersionByMd5(InputPath, OutPutPath, BigVersionNum,IgnoorePostFix,SizeUnit,TarType!="Upper", !IsFolder);
         }
 
         private void cbUnit_SelectedIndexChanged(object sender, EventArgs e)

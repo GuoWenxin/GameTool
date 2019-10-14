@@ -81,7 +81,8 @@ namespace GameTools
                                     {
                                         data[i, j] = "0";
                                     }
-                                    byte[] bytes = BitConverter.GetBytes(Convert.ToInt32(data[i, j]));
+                                    int intnum = Convert.ToInt32(data[i, j]);
+                                    byte[] bytes = BitConverter.GetBytes(intnum);
                                     WiteByteToBinary(bw, bytes);
                                     break;
                                 case "short":

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <BasicConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <folder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\excel</folder>
+  <folder>D:\excel</folder>
   <filterSheets>
     <string>changelog</string>
     <string>说明</string>
@@ -11,7 +11,7 @@
   <startLoadFolder>false</startLoadFolder>
   <loadData>true</loadData>
   <resUnderline />
-  <resFolder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\res</resFolder>
+  <resFolder>D:\excel</resFolder>
   <isDisorder>false</isDisorder>
   <isDatabase>false</isDatabase>
   <disSeed />

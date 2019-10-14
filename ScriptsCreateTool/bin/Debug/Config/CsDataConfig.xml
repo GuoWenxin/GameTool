@@ -3,7 +3,7 @@
   <configs>
     <CsDataGenerateInfo>
       <caption>默认配制</caption>
-      <folder>E:\szlyMobileGame\client\trunk\client\asClient\客户端配置\scripts</folder>
+      <folder>D:\excel</folder>
       <package_basic>com.game.data</package_basic>
       <beanImport>
         <string />

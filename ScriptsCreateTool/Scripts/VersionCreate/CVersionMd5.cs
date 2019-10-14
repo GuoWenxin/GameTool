@@ -13,7 +13,7 @@ namespace GameTools
 {
     public class CVersionMd5 : CSingleton<CVersionMd5>
     {
-        public string CreateMd5(string contents)
+        public string CreateMd5(string contents,bool isLower)
         {
             MD5 md5 = System.Security.Cryptography.MD5.Create();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(contents);
@@ -24,10 +24,17 @@ namespace GameTools
             {
                 sb.Append(hashBytes[i].ToString("X2"));
             }
-            return sb.ToString();
+            if (isLower)
+            {
+                return sb.ToString().ToLower();
+            }
+            else
+            {
+                return sb.ToString().ToUpper();
+            }
         }
 
-        public bool CreateVersionByMd5(string resousPath,string outPath,string versionNum,string strPostFix,string sizeUnit,bool isFile=true)
+        public bool CreateVersionByMd5(string resousPath,string outPath,string versionNum,string strPostFix,string sizeUnit,bool isLower=true, bool isFile=true)
         {
             IngorePostFixs.Clear();
             if (!string.IsNullOrEmpty(strPostFix))
@@ -41,7 +48,7 @@ namespace GameTools
                 {
                     //FormLoading.Instance.Start();
                     string contents = File.ReadAllText(resousPath);
-                    string md5 = CreateMd5(contents);
+                    string md5 = CreateMd5(contents,isLower);
                     CVersion versionlist = new CVersion();
                     versionlist.version = versionNum;
                     resousPath = resousPath.Replace("\\", "/");
@@ -113,7 +120,7 @@ namespace GameTools
                         foreach (var fileInfo in FileInfos)
                         {
                             string contents = File.ReadAllText(fileInfo.FullName);
-                            string md5 = CreateMd5(contents);
+                            string md5 = CreateMd5(contents,isLower);
                             //string name = fileInfo.Name;
                             string name = fileInfo.FullName.Replace("\\","/");
                             string root = resousPath.Replace("\\", "/");

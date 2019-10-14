@@ -47,7 +47,11 @@
             this.cbUnit = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxIgnoreFileName = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButtonLower = new System.Windows.Forms.RadioButton();
+            this.radioButtonUpper = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelInput
@@ -115,7 +119,7 @@
             this.radioButtonMd5.TabStop = true;
             this.radioButtonMd5.Text = "MD5";
             this.radioButtonMd5.UseVisualStyleBackColor = true;
-            this.radioButtonMd5.CheckedChanged += new System.EventHandler(this.radioButtonMd5_CheckedChanged);
+            this.radioButtonMd5.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButtonNum
             // 
@@ -127,7 +131,7 @@
             this.radioButtonNum.TabStop = true;
             this.radioButtonNum.Text = "数值(暂不可用)";
             this.radioButtonNum.UseVisualStyleBackColor = true;
-            this.radioButtonNum.CheckedChanged += new System.EventHandler(this.radioButtonNum_CheckedChanged);
+            this.radioButtonNum.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -160,7 +164,7 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(15, 331);
+            this.buttonSave.Location = new System.Drawing.Point(15, 436);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 11;
@@ -170,7 +174,7 @@
             // 
             // buttonSure
             // 
-            this.buttonSure.Location = new System.Drawing.Point(204, 331);
+            this.buttonSure.Location = new System.Drawing.Point(185, 436);
             this.buttonSure.Name = "buttonSure";
             this.buttonSure.Size = new System.Drawing.Size(75, 23);
             this.buttonSure.TabIndex = 12;
@@ -180,7 +184,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(409, 331);
+            this.buttonCancel.Location = new System.Drawing.Point(403, 436);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 13;
@@ -191,7 +195,7 @@
             // labSizeUnitTitle
             // 
             this.labSizeUnitTitle.AutoSize = true;
-            this.labSizeUnitTitle.Location = new System.Drawing.Point(15, 272);
+            this.labSizeUnitTitle.Location = new System.Drawing.Point(13, 392);
             this.labSizeUnitTitle.Name = "labSizeUnitTitle";
             this.labSizeUnitTitle.Size = new System.Drawing.Size(83, 12);
             this.labSizeUnitTitle.TabIndex = 14;
@@ -207,7 +211,7 @@
             "MB",
             "GB",
             "TB"});
-            this.cbUnit.Location = new System.Drawing.Point(105, 272);
+            this.cbUnit.Location = new System.Drawing.Point(102, 389);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(121, 20);
             this.cbUnit.TabIndex = 15;
@@ -230,11 +234,46 @@
             this.textBoxIgnoreFileName.TabIndex = 17;
             this.textBoxIgnoreFileName.TextChanged += new System.EventHandler(this.textBoxIgnoreFileName_TextChanged);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonLower);
+            this.groupBox2.Controls.Add(this.radioButtonUpper);
+            this.groupBox2.Location = new System.Drawing.Point(15, 271);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(489, 87);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "目标类型";
+            // 
+            // radioButtonLower
+            // 
+            this.radioButtonLower.AutoSize = true;
+            this.radioButtonLower.Checked = true;
+            this.radioButtonLower.Location = new System.Drawing.Point(105, 43);
+            this.radioButtonLower.Name = "radioButtonLower";
+            this.radioButtonLower.Size = new System.Drawing.Size(47, 16);
+            this.radioButtonLower.TabIndex = 6;
+            this.radioButtonLower.TabStop = true;
+            this.radioButtonLower.Text = "小写";
+            this.radioButtonLower.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonUpper
+            // 
+            this.radioButtonUpper.AutoSize = true;
+            this.radioButtonUpper.Location = new System.Drawing.Point(340, 43);
+            this.radioButtonUpper.Name = "radioButtonUpper";
+            this.radioButtonUpper.Size = new System.Drawing.Size(47, 16);
+            this.radioButtonUpper.TabIndex = 7;
+            this.radioButtonUpper.TabStop = true;
+            this.radioButtonUpper.Text = "大写";
+            this.radioButtonUpper.UseVisualStyleBackColor = true;
+            // 
             // FormVersionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 394);
+            this.ClientSize = new System.Drawing.Size(552, 484);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBoxIgnoreFileName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbUnit);
@@ -260,6 +299,8 @@
             this.Text = "版本生成设置";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +326,8 @@
         private System.Windows.Forms.ComboBox cbUnit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxIgnoreFileName;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioButtonLower;
+        private System.Windows.Forms.RadioButton radioButtonUpper;
     }
 }

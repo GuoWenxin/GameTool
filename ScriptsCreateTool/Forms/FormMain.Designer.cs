@@ -425,14 +425,14 @@ namespace GameTools
             // 单个文件ToolStripMenuItem
             // 
             this.单个文件ToolStripMenuItem.Name = "单个文件ToolStripMenuItem";
-            this.单个文件ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.单个文件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.单个文件ToolStripMenuItem.Text = "单个文件";
             this.单个文件ToolStripMenuItem.Click += new System.EventHandler(this.单个文件ToolStripMenuItem_Click);
             // 
             // 文件夹ToolStripMenuItem
             // 
             this.文件夹ToolStripMenuItem.Name = "文件夹ToolStripMenuItem";
-            this.文件夹ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.文件夹ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.文件夹ToolStripMenuItem.Text = "文件夹";
             this.文件夹ToolStripMenuItem.Click += new System.EventHandler(this.文件夹ToolStripMenuItem_Click);
             // 

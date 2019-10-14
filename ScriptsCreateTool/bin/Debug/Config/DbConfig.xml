@@ -6,11 +6,10 @@
       <DbType>MySql</DbType>
       <Title>localhost</Title>
       <Username>root</Username>
-      <Password>
-      </Password>
+      <Password>123456</Password>
       <IPAddress>127.0.0.1</IPAddress>
       <Port>3306</Port>
-      <Database>db_base_ngame_0001</Database>
+      <Database>db_base_ngame_s0001</Database>
       <VersionInfo>
         <TableName>
         </TableName>
@@ -22,10 +21,13 @@
         </DescField>
       </VersionInfo>
       <LocalPositionPath>D:\excel</LocalPositionPath>
-      <TableName />
-      <TableField />
+      <TableName>
+      </TableName>
+      <TableField>
+      </TableField>
       <IntValueField>localhost</IntValueField>
-      <DescField />
+      <DescField>
+      </DescField>
     </DatabaseInfo>
     <DatabaseInfo>
       <DbType>MySql</DbType>
@@ -110,6 +112,26 @@
       <TableField />
       <IntValueField>10.0.6.193(01)</IntValueField>
       <DescField />
+    </DatabaseInfo>
+    <DatabaseInfo>
+      <DbType>MySql</DbType>
+      <Title>10.0.1.12</Title>
+      <Username>root</Username>
+      <Password>123456</Password>
+      <IPAddress>10.0.1.12</IPAddress>
+      <Port>3307</Port>
+      <Database>db_base_ngame_2</Database>
+      <VersionInfo>
+        <TableName>
+        </TableName>
+        <TableField>
+        </TableField>
+        <IntValueField>
+        </IntValueField>
+        <DescField>
+        </DescField>
+      </VersionInfo>
+      <LocalPositionPath>E:\shenQiMobileGame\client\trunk\client_20180901\excel</LocalPositionPath>
     </DatabaseInfo>
   </DbInfos>
 </DatabaseConfig>
